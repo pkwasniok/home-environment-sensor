@@ -1,0 +1,27 @@
+/ {
+    aliases {
+        led = &yellow_led;
+        pms5003 = &pms5003;
+        bmp280 = &bmp280;
+    };
+};
+
+&uart0 {
+    status = "okay";
+
+    pms5003: pms5003 {
+        status = "okay";
+        compatible = "plantower,pms5003";
+   };
+};
+
+&i2c0 {
+    status = "okay";
+
+    bmp280: bmp280@76 {
+        status = "okay";
+        compatible = "bosch,bme280";
+        reg = <0x76>;
+    };
+};
+

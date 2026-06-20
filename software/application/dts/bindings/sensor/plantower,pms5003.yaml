@@ -1,0 +1,7 @@
+description: |
+  PMS5003 is a particulate matter sensor.
+
+compatible: "plantower,pms5003"
+
+include: [base.yaml, uart-device.yaml]
+
