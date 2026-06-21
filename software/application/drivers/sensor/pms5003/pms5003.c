@@ -21,7 +21,7 @@ LOG_MODULE_REGISTER(pms5003, CONFIG_LOG_DEFAULT_LEVEL);
 #define PMS5003_POWER_SLEEP 0x00
 #define PMS5003_POWER_AWAKE 0x01
 
-#define PMS5003_UART_TIMEOUT K_MSEC(1000)
+#define PMS5003_UART_TIMEOUT K_MSEC(5000)
 
 struct pms5003_data {
     uint16_t pm_1_0_cf;
@@ -192,6 +192,7 @@ static DEVICE_API(sensor, pms5003_api) = {
 static void pms5003_pm_action_resume(const struct device *dev) {
     LOG_INF("Power mode set to awake");
     pms5003_write_command(dev, PMS5003_CMD_POWER, PMS5003_POWER_AWAKE);
+    pms5003_write_command(dev, PMS5003_CMD_MODE, PMS5003_MODE_ACTIVE);
 }
 
 static void pms5003_pm_action_suspend(const struct device *dev) {

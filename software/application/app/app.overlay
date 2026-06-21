@@ -1,3 +1,5 @@
+#include <zephyr/dt-bindings/pinctrl/esp32c6-pinctrl.h>
+
 / {
     aliases {
         led = &yellow_led;

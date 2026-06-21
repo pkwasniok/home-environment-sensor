@@ -4,5 +4,5 @@ find_package(Zephyr REQUIRED)
 
 project(app LANGUAGES C)
 
-target_sources(app PRIVATE src/main.c)
+target_sources(app PRIVATE src/main.c src/bmp280.c src/pms5003.c src/led.c)
 
